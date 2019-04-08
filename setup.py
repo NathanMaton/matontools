@@ -10,7 +10,7 @@ README = (HERE / "README.md").read_text()
 # This call to setup() does all the work
 setup(
     name="matontools",
-    version="0.0.1",
+    version="0.0.4",
     description="A set of functions to speed up Data Science workflows",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -23,7 +23,7 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["matontools"],
+    packages=["matontools", "matontools.missing"],
     include_package_data=True,
     install_requires=["pandas", "numpy"],
     # entry_points={
