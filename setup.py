@@ -14,9 +14,9 @@ setup(
     description="A set of functions to speed up Data Science workflows",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/realpython/reader", #replace this
-    author="Nathan Maton", #replace this
-    author_email="office@realpython.com", #replace this
+    url="https://github.com/NathanMaton/matontools",
+    author="Nathan Maton",
+    author_email="nathanmaton@gmail.com",
     license="MIT",
     classifiers=[
         "License :: OSI Approved :: MIT License",
