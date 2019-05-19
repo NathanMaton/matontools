@@ -26,23 +26,5 @@ def graph_missing_data(df):
     missing_percentages = pd.DataFrame.from_dict(missing_data, orient='index')
     return missing_percentages
 
-# def main():
-#     """Read the Real Python article feed"""
-#     # Read URL of the Real Python feed from config file
-#     cfg = ConfigParser()
-#     cfg.read_string(resources.read_text("reader", "config.txt"))
-#     url = cfg.get("feed", "url")
-#
-#     # If an article ID is given, show the article
-#     if len(sys.argv) > 1:
-#         article = feed.get_article(url, sys.argv[1])
-#         viewer.show(article)
-#
-#     # If no ID is given, show a list of all articles
-#     else:
-#         site = feed.get_site(url)
-#         titles = feed.get_titles(url)
-#         viewer.show_list(site, titles)
-#
-# if __name__ == "__main__":
-#     main()
+def std_from_sample_mean(mean, n):
+    return np.sqrt((mean*(1-mean))/n)
