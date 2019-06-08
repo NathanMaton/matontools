@@ -1,0 +1,6 @@
+.DS_Store
+build/
+dist/
+matontools.egg-info/
+matontools/.DS_Store
+matontools/__pycache__/

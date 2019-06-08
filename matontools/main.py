@@ -1,12 +1,27 @@
+'''
+A collection of functions for data science.
+
+Guide to publishing this exists here:
+https://realpython.com/pypi-publish-python-package/#building-your-package
+
+main commands:
+pip install twine
+python setup.py sdist bdist_wheel
+twine upload dist/*
+'''
+
 import pandas as pd
 import numpy as np
 
 #functions to write:
-
-#graph missing data percentages in columns
-
-#future:
 # clean columns
+import pickle
+def unpickle_df(file_name):
+    '''Unpickle a file'''
+    with open(file_name, 'rb') as pickleFile:
+        df = pickle.load(pickleFile)
+    return df
+
 def graph_missing_data(df):
     '''
     Function takes in a df and graphs the missing data per column
@@ -25,6 +40,29 @@ def graph_missing_data(df):
             missing_data[i]=missing_percent
     missing_percentages = pd.DataFrame.from_dict(missing_data, orient='index')
     return missing_percentages
+
+import numpy as np
+import scipy.stats
+
+
+def mean_confidence_interval(data, confidence=0.95):
+    '''
+    Returns the mean of data with a lower and upper value based
+    on the confidence level.
+
+    INPUTS:
+        - Data: typically list or array of values
+        - Confidence level: defaults to .95, value between 0 and 1
+    OUTPUTS:
+        - Lower bound, mean, upper bound based on confidence level
+
+    '''
+    a = 1.0 * np.array(data) #unclear what this does, maybe converts ints to floats?
+    n = len(a)
+    m, se = np.mean(a), scipy.stats.sem(a) #stderror = std/sqrt(n)
+    h = se * scipy.stats.t.ppf((1 + confidence) / 2., n-1) #gets the delta from the mean
+    return m-h, m, m+h
+
 
 def std_from_sample_mean(mean, n):
     return np.sqrt((mean*(1-mean))/n)
